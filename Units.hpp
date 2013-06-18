@@ -32,6 +32,14 @@ template <class Unit, class Prefix = Prefix<0>, class Numeric = double>
 struct Value {
 	explicit Value(Numeric val):
 		_val(val) {}
+
+
+    template <class P>
+    operator Value<Unit,P,Numeric> ()
+    {
+        return prefix_conv<P>();
+    }
+
 	Numeric val() const { return _val; }
 
 	Value& operator+=(const Value& rhs)
@@ -70,6 +78,42 @@ struct Value {
 		return is;
 	}
 
+    
+    friend Value& operator*=(Value& lhs, const Numeric rhs)
+    {
+        lhs._val *= rhs;
+        return lhs;
+    }
+
+    friend Value operator*(Value lhs, const Numeric rhs)
+    {
+        lhs *= rhs;
+        return lhs;
+    }
+
+    friend Value operator*(const Numeric lhs, Value rhs)
+    {
+        rhs *= lhs;
+        return rhs;
+    }
+
+    friend Value& operator/=(Value& lhs, const Numeric rhs)
+    {
+        lhs._val /= rhs;
+        return lhs;
+    }
+
+    friend Value operator/(Value lhs, const Numeric rhs)
+    {
+        lhs /= rhs;
+        return lhs;
+    }
+
+    friend Value operator/(const Numeric lhs, Value rhs)
+    {
+        rhs /= lhs;
+        return rhs;
+    }
 
 	template<class U1, class U2, class P, class N>
 	friend auto operator*(const Value<U1,P,N>& lhs, const Value<U2,P,N>& rhs)
@@ -136,5 +180,6 @@ typedef Value<Current> Ampere;
 typedef Value<Temperature> Kelvin;
 typedef Value<Substance> Mol;
 typedef Value<Luminosity> Candela;
+
 
 #endif // UNITS_HPP
