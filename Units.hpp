@@ -273,6 +273,7 @@ namespace constants {
     static const auto G = Value<UnitDiv<UnitDiv<UnitMul<Force,Area>::unit,Mass>::unit,Mass>::unit>(6.67384e-7);
     static const auto h = Value<UnitMul<Energy,Time>::unit>(6.62606957e-34);
     static const auto hbar = decltype(h)(1.054571726e-34);
+    
 }
 
 }
