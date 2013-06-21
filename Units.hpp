@@ -8,9 +8,7 @@
 #include <cstdint>
 #include <iostream>
 
-#ifndef FP_T
 #define FP_T double
-#endif
 
 namespace SI {
 

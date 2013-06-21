@@ -1,5 +1,10 @@
-#include "Units.hpp"
+This is a simple Units library I made for SI units in C++. It uses
+	C++11 features for user convenience. It is a header-only library,
+	so easy to use!
+	
+Here is the test/demo in ```Units_test.cpp```:
 
+```
 #include <iostream>
 
 using namespace std;
@@ -33,4 +38,4 @@ int main()
 
 	return 0;
 }
-
+```
