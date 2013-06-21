@@ -73,42 +73,42 @@ struct Value {
 		return is;
 	}
 
-    
-    friend Value& operator*=(Value& lhs, const FP_T rhs)
-    {
-        lhs._val *= rhs;
-        return lhs;
-    }
+	
+	friend Value& operator*=(Value& lhs, const FP_T rhs)
+	{
+		lhs._val *= rhs;
+		return lhs;
+	}
 
-    friend Value operator*(Value lhs, const FP_T rhs)
-    {
-        lhs *= rhs;
-        return lhs;
-    }
+	friend Value operator*(Value lhs, const FP_T rhs)
+	{
+		lhs *= rhs;
+		return lhs;
+	}
 
-    friend Value operator*(const FP_T lhs, Value rhs)
-    {
-        rhs *= lhs;
-        return rhs;
-    }
+	friend Value operator*(const FP_T lhs, Value rhs)
+	{
+		rhs *= lhs;
+		return rhs;
+	}
 
-    friend Value& operator/=(Value& lhs, const FP_T rhs)
-    {
-        lhs._val /= rhs;
-        return lhs;
-    }
+	friend Value& operator/=(Value& lhs, const FP_T rhs)
+	{
+		lhs._val /= rhs;
+		return lhs;
+	}
 
-    friend Value operator/(Value lhs, const FP_T rhs)
-    {
-        lhs /= rhs;
-        return lhs;
-    }
+	friend Value operator/(Value lhs, const FP_T rhs)
+	{
+		lhs /= rhs;
+		return lhs;
+	}
 
-    friend Value operator/(const FP_T lhs, Value rhs)
-    {
-        rhs /= lhs;
-        return rhs;
-    }
+	friend Value operator/(const FP_T lhs, Value rhs)
+	{
+		rhs /= lhs;
+		return rhs;
+	}
 
 	template<class U1, class U2>
 	friend auto operator*(const Value<U1>& lhs, const Value<U2>& rhs)
@@ -240,44 +240,44 @@ using SpecificHeat = UnitDiv<HeatCapacity,Mass>::unit;
 using Entropy = UnitDiv<Energy,Temperature>::unit;
 
 constexpr Meter operator"" _m(long double v) {
-    return Meter(v);
+	return Meter(v);
 }
 
 constexpr Kilogram operator"" _kg(long double v) {
-    return Kilogram(v);
+	return Kilogram(v);
 }
 
 constexpr Second operator"" _s(long double v) {
-    return Second(v);
+	return Second(v);
 }
 
 constexpr Ampere operator"" _A(long double v) {
-    return Ampere(v);
+	return Ampere(v);
 }
 
 constexpr Kelvin operator"" _K(long double v) {
-    return Kelvin(v);
+	return Kelvin(v);
 }
 
 constexpr Mol operator"" _mol(long double v) {
-    return Mol(v);
+	return Mol(v);
 }
 
 constexpr Candela operator"" _cd(long double v) {
-    return Candela(v);
+	return Candela(v);
 }
 
 constexpr Radian operator"" _rad(long double v) {
-    return Radian(v);
+	return Radian(v);
 }
 
 namespace constants {
 
-    static const auto c = Value<Velocity>(299792458);
-    static const auto G = Value<UnitDiv<UnitDiv<UnitMul<Force,Area>::unit,Mass>::unit,Mass>::unit>(6.67384e-7);
-    static const auto h = Value<UnitMul<Energy,Time>::unit>(6.62606957e-34);
-    static const auto hbar = decltype(h)(1.054571726e-34);
-    
+	static const auto c = Value<Velocity>(299792458);
+	static const auto G = Value<UnitDiv<UnitDiv<UnitMul<Force,Area>::unit,Mass>::unit,Mass>::unit>(6.67384e-7);
+	static const auto h = Value<UnitMul<Energy,Time>::unit>(6.62606957e-34);
+	static const auto hbar = decltype(h)(1.054571726e-34);
+	
 }
 
 }
