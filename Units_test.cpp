@@ -10,9 +10,8 @@ int main()
 {
     using namespace SI;
 	
-	typedef Value<Velocity> MpS;
+    typedef Value<Velocity> MpS;
     typedef Value<Acceleration> MpSS;
-    typedef Value<Force> Newton;
 
 	auto sum = 100.0_m + 22.0_m;
 
