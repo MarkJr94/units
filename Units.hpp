@@ -171,7 +171,7 @@ using Acceleration = UnitDiv<Velocity,Time>::unit;
 
 using Jerk = UnitDiv<Acceleration,Time>::unit;
 
-using Radian = Unitless;
+using Radian = Value<Unitless>;
 
 using Force = UnitMul<Mass, Acceleration>::unit;
 using Newton = Value<Force>;
@@ -184,7 +184,7 @@ using NewtonMeter = Value<Torque>;
 
 using AngularMomentum = UnitMul<Torque,Time>::unit;
 
-using AngularFrequency = UnitDiv<Radian,Time>::unit;
+using AngularFrequency = UnitDiv<Unitless,Time>::unit;
 
 using AngularAcceleration = UnitDiv<AngularFrequency,Time>::unit;
 
@@ -239,32 +239,36 @@ using SpecificHeat = UnitDiv<HeatCapacity,Mass>::unit;
 
 using Entropy = UnitDiv<Energy,Temperature>::unit;
 
-constexpr Meter operator"" m(long double v) {
+constexpr Meter operator"" _m(long double v) {
     return Meter(v);
 }
 
-constexpr Kilogram operator"" kg(long double v) {
+constexpr Kilogram operator"" _kg(long double v) {
     return Kilogram(v);
 }
 
-constexpr Second operator"" s(long double v) {
+constexpr Second operator"" _s(long double v) {
     return Second(v);
 }
 
-constexpr Ampere operator"" A(long double v) {
+constexpr Ampere operator"" _A(long double v) {
     return Ampere(v);
 }
 
-constexpr Kelvin operator"" K(long double v) {
+constexpr Kelvin operator"" _K(long double v) {
     return Kelvin(v);
 }
 
-constexpr Mol operator"" mol(long double v) {
+constexpr Mol operator"" _mol(long double v) {
     return Mol(v);
 }
 
-constexpr Candela operator"" cd(long double v) {
+constexpr Candela operator"" _cd(long double v) {
     return Candela(v);
+}
+
+constexpr Radian operator"" _rad(long double v) {
+    return Radian(v);
 }
 
 namespace constants {
