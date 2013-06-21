@@ -33,7 +33,6 @@ int main()
 	cout << "Electrical Power of circuit with 15A current and 20V potential = " << elec_power << "W" << endl;
     cout << "Energy needed to raise 10kg of water 5C (5K) using 4.1813 as specific heat = " << heat_added << "J" << endl;
 
-	cout.flush();
 	return 0;
 }
 
